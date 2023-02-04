@@ -11,5 +11,5 @@ RUN npm install
 COPY . .
 
 # run the server
-EXPOSE 8080
+EXPOSE 80
 CMD [ "node", "index.js" ]
