@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://ghcr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_71f3c5e6dd8746488153f6ba9e759df6 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_a38ba51b9ae947d2bc0d98e1032a89e1 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_bca2f15d0f5a415b9c0ca2aba01f1bf8 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_8f7f431b66d641208b01989d37ce116d }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_71f3c5e6dd8746488153f6ba9e759df6 }}/junepark678/ploosh-docs:${{ github.sha }}
+        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_bca2f15d0f5a415b9c0ca2aba01f1bf8 }}/junepark678/ploosh-docs:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'physicsexpirements'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_38c3a5ad868a48b2ac6e638807a18307 }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_71f3c5e6dd8746488153f6ba9e759df6 }}/junepark678/ploosh-docs:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4f31a714a87c49ee857c48b913e3d95a }}
+        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_bca2f15d0f5a415b9c0ca2aba01f1bf8 }}/junepark678/ploosh-docs:${{ github.sha }}'
