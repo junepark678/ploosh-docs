@@ -2,11 +2,13 @@ import { Selection } from './selection.js';
 import { Tabs } from './tabs.js';
 
 async function options(app) {
+    app.closeNav();
     document.querySelector('#open-nav').setAttribute('data-open', '');
     app.search.title.style.display = 'block';
     app.search.title.textContent = 'Options';
     app.search.pd_round.input.style.display = 'none';
     app.search.pd_round.style.display = 'none';
+    app.nav.id = "btns";
 
     const tabs = new Tabs(app);
     const themes = [

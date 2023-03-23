@@ -18,14 +18,21 @@ switch (localStorage.getItem('incog||background')) {
         particlesJS.load('.particles', './json/particles.json');
 };
 
+let nav_oldDisplay;
+
 app.openNav = function () {
+    nav_oldDisplay = document.querySelector('nav').style.display;
+    document.querySelector('nav').style.removeProperty('display')
+    document.querySelector('#open-nav').style.display = 'none';
     document.querySelector('#close-nav').style.display = 'flex';
-    document.querySelector('nav').style.display = 'flex';
+    document.querySelector('#btns').style.display = 'flex';
 };
 
 app.closeNav = function () {
     document.querySelector('#close-nav').style.removeProperty('display')
-    document.querySelector('nav').style.removeProperty('display')
+    document.querySelector('#btns').style.removeProperty('display')
+    document.querySelector('#open-nav').style.removeProperty('display')
+    document.querySelector('nav').style.display = nav_oldDisplay;
 };
 
 app.destroyParticles = function () {

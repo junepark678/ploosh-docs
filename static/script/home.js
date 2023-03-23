@@ -8,6 +8,7 @@ const tips = [
 
 
 function access(app) {
+    app.closeNav();
     if (document.querySelector('header').hasAttribute('data-init')) {
         document.querySelector('header').removeAttribute('data-init')
     };
@@ -84,7 +85,7 @@ function access(app) {
                             array = true
                             break;
                     }
-                    const res = await fetch(__uv$config.bare + 'v2/', {
+                    const res = await fetch(__uv$config.bare + 'v1/', {
                         headers: {
                             'x-bare-host': host,
                             'x-bare-protocol': 'https:',
